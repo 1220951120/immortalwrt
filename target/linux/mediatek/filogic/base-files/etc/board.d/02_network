@@ -71,6 +71,11 @@ mediatek_setup_interfaces()
 	zyxel,ex5601-t0-ubootmod)
 		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 lan4" eth1
 		;;
+	nradio,wt9120)
+		ucidef_set_interface "lan" device "lan1 lan2 lan3" \
+			protocol "static" ipaddr "192.168.66.1" netmask "255.255.255.0"
+		ucidef_set_interface_wan BLUE4
+		;;
 	asus,tuf-ax4200q|\
 	asus,tuf-ax6000|\
 	glinet,gl-mt6000|\
@@ -175,6 +180,7 @@ mediatek_setup_macs()
 	local lan_mac=""
 	local wan_mac=""
 	local label_mac=""
+	local wifi_mac=""
 
 	case $board in
 	acer,predator-w6|\
@@ -209,6 +215,23 @@ mediatek_setup_macs()
 	netgear,wax220)
 		lan_mac=$(mtd_get_mac_ascii u-boot-env mac)
 		label_mac=$lan_mac
+		;;
+	nradio,c8-668gl)
+		lan_mac=$(mmc_get_mac_ascii bdinfo "fac_mac ")
+		wan_mac=$(macaddr_add "$lan_mac" 2)
+		label_mac=$lan_mac
+		;;
+	nradio,wt9120)
+		wifi_mac=$(mmc_get_mac_binary factory 0x4)
+		if [ -n "$wifi_mac" ]; then
+			lan_mac=$(macaddr_add "$wifi_mac" -1)
+			wan_mac=$(macaddr_add "$wifi_mac" 1)
+			label_mac=$lan_mac
+		else
+			lan_mac=$(cat /sys/class/net/eth0/address)
+			wan_mac=$(macaddr_add "$lan_mac" 1)
+			label_mac=$lan_mac
+		fi
 		;;
 	qihoo,360t7)
 		lan_mac=$(mtd_get_mac_ascii factory lanMac)

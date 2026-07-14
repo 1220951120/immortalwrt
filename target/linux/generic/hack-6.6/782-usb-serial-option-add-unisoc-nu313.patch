@@ -1,0 +1,22 @@
+From: NRadio firmware build <noreply@local>
+Subject: [PATCH] usb: serial: option: add MeiG NU313-M2 support
+
+Add the three USB product IDs used by the MeiG NU313-M2 and reserve the
+non-serial interfaces, matching the interface layout used by the existing
+5.4-based NRadio firmware.
+
+--- a/drivers/usb/serial/option.c
++++ b/drivers/usb/serial/option.c
+@@ -2431,6 +2431,12 @@ static const struct usb_device_id option
+ 	  .driver_info = RSVD(3) },
+ 	{ USB_DEVICE(0x1508, 0x1001),						/* Fibocom NL668 (IOT version) */
+ 	  .driver_info = RSVD(4) | RSVD(5) | RSVD(6) },
++	{ USB_DEVICE(UNISOC_VENDOR_ID, 0x4038),					/* MeiG NU313-M2 */
++	  .driver_info = RSVD(0) | RSVD(1) | RSVD(6) | RSVD(7) },
++	{ USB_DEVICE(UNISOC_VENDOR_ID, 0x4039),					/* MeiG NU313-M2 */
++	  .driver_info = RSVD(0) | RSVD(1) | RSVD(6) | RSVD(7) },
++	{ USB_DEVICE(UNISOC_VENDOR_ID, 0x4040),					/* MeiG NU313-M2 */
++	  .driver_info = RSVD(0) | RSVD(1) | RSVD(6) | RSVD(7) },
+ 	{ USB_DEVICE(0x1782, 0x4d10) },						/* Fibocom L610 (AT mode) */
+ 	{ USB_DEVICE_INTERFACE_CLASS(0x1782, 0x4d11, 0xff) },			/* Fibocom L610 (ECM/RNDIS mode) */
+ 	{ USB_DEVICE_AND_INTERFACE_INFO(0x2cb7, 0x0001, 0xff, 0xff, 0xff) },	/* Fibocom L716-EU (ECM/RNDIS mode) */
