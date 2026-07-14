@@ -1821,6 +1821,7 @@ define Device/nradio_wt9120-c5800-650
 	kmod-usb3 kmod-usb-acm kmod-usb-serial-option \
 	kmod-usb-net-cdc-ether kmod-usb-net-cdc-mbim kmod-usb-net-cdc-ncm \
 	kmod-usb-net-qmi-wwan kmod-usb-net-rndis umbim uqmi usbutils automount \
+	f2fsck mkf2fs \
 	luci-app-ModemATSD luci-app-Secondsystem luci-app-oaf luci-app-store \
 	luci-app-openclash luci-theme-argon luci-app-argon-config \
 	luci-i18n-argon-config-zh-cn
