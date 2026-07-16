@@ -1,0 +1,4 @@
+[submodule "package/luci-app-ModemATSD"]
+	path = package/luci-app-ModemATSD
+	url = https://github.com/1220951120/luci-app-ModemATSD.git
+	branch = main
