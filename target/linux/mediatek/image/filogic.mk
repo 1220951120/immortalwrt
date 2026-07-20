@@ -1798,11 +1798,10 @@ define Device/nokia_ea0326gmp
 endef
 TARGET_DEVICES += nokia_ea0326gmp
 
-define Device/nradio_wt9120-c5800-650
+define Device/nradio_c5800-650
   DEVICE_VENDOR := NRadio
   DEVICE_MODEL := C5800-650
-  DEVICE_VARIANT := WT9120
-  DEVICE_DTS := mt7981b-nradio-wt9120-c5800-650
+  DEVICE_DTS := mt7981b-nradio-c5800-650
   DEVICE_DTS_DIR := ../dts
   DEVICE_PACKAGES := kmod-mt7915e kmod-mt7981-firmware mt7981-wo-firmware \
 	kmod-usb3 kmod-usb-acm kmod-usb-serial-option \
@@ -1812,11 +1811,11 @@ define Device/nradio_wt9120-c5800-650
 	luci-app-ModemATSD luci-app-Secondsystem luci-app-oaf luci-app-store \
 	luci-app-openclash luci-theme-argon luci-app-argon-config \
 	luci-i18n-argon-config-zh-cn
-  SUPPORTED_DEVICES := nradio,wt9120
+  SUPPORTED_DEVICES := nradio,c5800-650 nradio,wt9120
   IMAGE_SIZE := 131072k
   IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata | check-size
 endef
-TARGET_DEVICES += nradio_wt9120-c5800-650
+TARGET_DEVICES += nradio_c5800-650
 
 define Device/openembed_som7981
   DEVICE_VENDOR := OpenEmbed

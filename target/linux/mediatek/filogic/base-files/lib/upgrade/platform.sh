@@ -161,7 +161,7 @@ platform_do_upgrade() {
 		nand_do_upgrade "$1"
 		;;
 	nradio,c8-668gl|\
-	nradio,wt9120)
+	nradio,c5800-650)
 		CI_DATAPART="rootfs_data"
 		CI_KERNPART="kernel_2nd"
 		CI_ROOTPART="rootfs_2nd"
@@ -224,7 +224,7 @@ platform_check_image() {
 		return 0
 		;;
 	nradio,c8-668gl|\
-	nradio,wt9120)
+	nradio,c5800-650)
 		# tar magic `ustar`
 		magic="$(dd if="$1" bs=1 skip=257 count=5 2>/dev/null)"
 
@@ -258,7 +258,7 @@ platform_copy_config() {
 	huasifei,wh3000-pro|\
 	jdcloud,re-cp-03|\
 	nradio,c8-668gl|\
-	nradio,wt9120|\
+	nradio,c5800-650|\
 	smartrg,sdg-8612|\
 	smartrg,sdg-8614|\
 	smartrg,sdg-8622|\
