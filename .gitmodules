@@ -2,3 +2,7 @@
 	path = package/luci-app-ModemATSD
 	url = https://github.com/1220951120/luci-app-ModemATSD.git
 	branch = main
+[submodule "package/luci-app-ModemNU313"]
+	path = package/luci-app-ModemNU313
+	url = https://github.com/1220951120/luci-app-ModemNU313.git
+	branch = main
