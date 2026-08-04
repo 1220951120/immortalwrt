@@ -1806,10 +1806,13 @@ define Device/nradio_c5800-650
   DEVICE_PACKAGES := kmod-mt7915e kmod-mt7981-firmware mt7981-wo-firmware \
 	kmod-usb3 kmod-usb-acm kmod-usb-serial-option \
 	kmod-usb-net-cdc-ether kmod-usb-net-cdc-mbim kmod-usb-net-cdc-ncm \
-	kmod-usb-net-qmi-wwan kmod-usb-net-rndis umbim uqmi usbutils automount \
+	kmod-usb-net-qmi-wwan kmod-usb-net-rndis \
+	kmod-ipt-ipset kmod-ipt-conntrack-extra kmod-ipt-ipopt \
+	kmod-ip6tables kmod-nft-compat \
+	umbim uqmi usbutils automount \
 	f2fsck mkf2fs \
 	luci-app-ModemATSD luci-app-ModemNU313 luci-app-Secondsystem \
-	luci-app-mwan3 luci-app-oaf luci-app-store \
+	luci-app-oaf luci-app-store \
 	luci-app-openclash luci-theme-argon luci-app-argon-config \
 	luci-i18n-argon-config-zh-cn
   SUPPORTED_DEVICES := nradio,c5800-650 nradio,wt9120
